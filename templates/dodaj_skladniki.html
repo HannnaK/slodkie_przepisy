@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dodanie_skladniki</title>
+</head>
+{% extends "base.html" %}
+{% block zawartosc %}
+
+<body>
+{% if messages %}
+<div class="alert alert-danger">{{ messages[0] }}</div>
+{% endif %}
+
+<h2>{{opis_pola}}</h2>
+<form method="post" action="">
+    <table>
+        <tr>
+            <td>{{opis_pola_2}}</td>
+            <td><select name="id" class="form-control">
+                {%for c in lista %}
+                <option value="{{c[0]}}">{{c[1]}}</option>
+                {%endfor%}
+            </select></td>
+        </tr>
+
+        <tr>
+            <td>Wybierz składnik:</td>
+            <td><select name="id_skl" class="form-control">
+                {%for s in lista_skladnikow%}
+                <option value="{{s[0]}}">{{s[1]}}</option>
+                {%endfor%}
+            </select></td>
+        </tr>
+
+        <tr>
+
+            <td>Podaj ilość składnika</td>
+            <td><input type="text" name="ilosc_skl" class="form-control"></td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" class="btn btn-success btn-sm">
+                <input type="reset" class="btn btn-danger btn-sm"></td>
+        </tr>
+        {%if dodane_skladniki%}
+        <tr>
+            <td>{{opis_pola_3}}</td>
+            {%for skl in dodane_skladniki%}
+            <td>{{skl}}</td>
+            {%endfor%}
+        </tr>
+        {%endif%}
+    </table>
+
+
+</form>
+</body>
+
+</html>
+{% endblock %}

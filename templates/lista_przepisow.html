@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% block zawartosc %}
+<head>
+    <meta charset="UTF-8">
+    <title>Przepisy</title>
+</head>
+<body>
+<h2>Wybierz przepis z listy:</h2>
+<ul>
+    {%if lista_ciast:%}
+    {% for ciasto in lista_ciast %}
+    <li>
+        <a href="/ciasto/{{ciasto[0]}}">{{ciasto[1]}}</a>
+    </li>
+    {% endfor %}
+    {%else:%}
+    {% for krem in lista_dodatkow %}
+    <li>
+        <a href="/krem/{{krem[0]}}">{{krem[1]}}</a>
+    </li>
+    {% endfor %}
+    {%endif%}
+</ul>
+</body>
+
+{% endblock %}

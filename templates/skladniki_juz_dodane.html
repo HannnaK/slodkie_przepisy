@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>juz dodane</title>
+</head>
+<body>
+
+<div class="ramka">
+    <h3>{{opis_pola}}</h3>
+
+    <table>
+        <tr>
+            {% for s in dodane_skldniki%}
+            <td>🔹 {{s[0]}}{%endfor%}</td>
+        </tr>
+    </table>
+    <br/>
+    <p><a href="/" class="btn btn-primary" role="button" aria-pressed="true">Strona główna</a>
+        <input class="btn btn-primary" value="Dodaj kolejny składnik" onclick="history.go(-1);"/></p>
+</div>
+</body>
+<style>
+.ramka {
+    border: 1px solid navajowhite;
+    background: LightCyan;
+    padding: 20px;
+    }
+
+
+
+
+</style>
+</html>

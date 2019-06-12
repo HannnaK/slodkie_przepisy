@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>powiazanie</title>
+</head>
+{% extends "base.html" %}
+{% block zawartosc %}
+<body>
+<p>Nie można skasować {{opis_pola}} ponieważ jest powiązany z następującymi przepisami:</p>
+<table>
+    <tr>
+        {%if powiazany_c:%}
+        <td>Ciasta/ciasteczka:</td>
+        {%for s in powiazany_c%}
+        <td>• {{s}}</td>
+        {%endfor%}
+        {%endif%}
+    </tr>
+</table>
+<table>
+    <tr>
+        {%if powiazany_k:%}
+        <td>Kremy/polewy:</td>
+        {%for s in powiazany_k%}
+        <td>• {{s}}</td>
+        {%endfor%}
+        {%endif%}
+    </tr>
+</table>
+</body>
+</html>
+{% endblock %}

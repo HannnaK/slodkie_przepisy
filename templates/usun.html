@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{opis_pola}}</title>
+</head>
+{% extends "base.html" %}
+{% block zawartosc %}
+
+<form method="post" action="">
+    <table>
+        <tr>
+            <th>{{opis_pola_2}}</th>
+            <td><select name="id" class="form-control">
+                {%for l in lista %}
+                <option value="{{l[0]}}">{{l[1]}}</option>
+                {%endfor%}
+            </select></td>
+        <tr>
+            <td></td>
+            <td><input type="submit" class="btn btn-success btn-sm">
+                <input type="reset" class="btn btn-danger btn-sm"></td>
+        </tr>
+    </table>
+</form>
+{% endblock %}
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Przepis</title>
+</head>
+
+<body>
+
+<div class="ramka">
+    <p>
+        <a class="btn btn-primary" href="/">Strona główna</a>
+        <input class="btn btn-primary" value="Poprzednia strona" onclick="history.go(-1);"/>
+    </p>
+    <center> {% if przepis!=[] and przepis[0][0]==indeks %}
+        <h2>Przepis na: {{przepis[0][1]}} ({{przepis[0][2]}})</h2>
+
+        <table>
+            <tr>
+                <th>{{przepis[0][1]}} - składniki</th>
+                <td>{% for skladnik in przepis%}
+                    {%if skladnik[6]==None%}
+                    Do przepisu nie dodano jeszcze składników
+                    {%else%}
+                    🔹 {{skladnik[6]}} {{skladnik[7]}}
+                    {%endif%}
+                    {% endfor %}
+                </td>
+            </tr>
+
+            <tr>
+                <th>Sposób przygotowania</th>
+                <td>{{przepis[0][3] }}</td>
+
+            </tr>
+            {%else%}
+            <p style="color: red">
+                Brak przepisu o id: {{indeks}}.
+            </p>
+            {% endif %}
+
+            {% if krem!=[] and przepis[0][4]!= None and przepis[0][4]!= '' %}
+
+            <tr>
+                <th>{{krem[0][1]}} - składniki</th>
+                <td>
+                    {%for k in krem%}
+                    🔹 {{k[4]}} {{k[5]}}
+                    {%endfor%}
+                </td>
+            </tr>
+            <tr>
+                <th>Sposób przygotowania</th>
+                <td>{{krem[0][3]}}</td>
+            </tr>
+            {% endif %}
+            {% if krem_bez_skladnikow!=[] and krem==[]:%}
+
+            <tr>
+                <th>{{krem_bez_skladnikow[0][1]}} - składniki</th>
+                <td>
+                    Do przepisu nie dodano jeszcze składników
+                </td>
+            </tr>
+            <tr>
+                <th>Sposób przygotowania</th>
+                <td>{{krem_bez_skladnikow[0][4]}}</td>
+            </tr>
+            {% endif %}
+        </table>
+        <br/>
+        <div class="text-center">
+            {%if przepis!=[] and przepis[0][9]!= None and przepis[0][9]!=''%}
+            <img width="546" height="451" src="/static/{{przepis[0][9]}}.jpg" class="rounded-lg" alt="...">
+            {%endif%}
+        </div>
+</div>
+</center>
+</body>
+</html>
+
+<style>
+    .ramka {
+        border: 1px solid navajowhite;
+        background: rgb(200, 255, 255);
+        padding: 20px;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    td, th {
+        border: 1px solid DodgerBlue;
+        padding: 5px;
+        background-color: rgb(235, 255, 255)
+    }
+
+
+
+
+</style>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% block zawartosc %}
+<head>
+    <meta charset="UTF-8">
+    <title>Wyszukiwanie</title>
+</head>
+
+<body>
+
+
+<form method="get" action="/wyszukiwanie">
+    <table>
+        <tr>
+            <th>Podaj nazwę szukanego przepisu:</th>
+            <td><input type="text" name="fraza" class="form-control"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" class="btn btn-success btn-sm">
+                <input type="reset" class="btn btn-danger btn-sm"></td>
+        </tr>
+    </table>
+</form>
+{% if przepisy %}
+{% for przepis in przepisy %}
+<a href="/ciasto/{{ przepis[0] }}">{{ przepis[1] }}</a>
+<br>
+{% endfor %}
+
+{% endif %}
+</body>
+{% endblock %}
+
+

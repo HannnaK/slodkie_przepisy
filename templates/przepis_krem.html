@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Przepis_krem</title>
+</head>
+<body>
+
+<div class="ramka">
+    <p>
+        <a class="btn btn-primary" href="/">Strona główna</a>
+        <input class="btn btn-primary" value="Poprzednia strona" onclick="history.go(-1);"/>
+    </p>
+    {% if krem==[] and krem_bez_skladnikow!=[] %}
+    <h2>Przepis na: {{krem_bez_skladnikow[0][1]}}</h2>
+    <table>
+        <tr>
+            <th>Składniki</th>
+            <td>Do przepisu nie dodano jeszcze składników</td>
+        </tr>
+        <tr>
+            <th>Sposób przygotowania</th>
+            <td>{{krem_bez_skladnikow[0][2]}}</td>
+        </tr>
+    </table>
+    {% elif krem!=[] %}
+    <h2>Przepis na: {{krem[0][1]}}</h2>
+
+    <table>
+        <tr>
+            <th>Składniki</th>
+            <td>
+                {%for k in krem%}
+                {{k[4]}} {{k[5]}}
+                <br/>
+                {%endfor%}
+            </td>
+        </tr>
+        <tr>
+            <th>Sposób przygotowania</th>
+            <td>{{krem[0][3]}}</td>
+        </tr>
+        {%else%}
+        <p style="color: red">
+            Brak przepisu o id: {{indeks}}.
+        </p>
+        {% endif %}
+
+    </table>
+</div>
+</body>
+</html>
+
+<style>
+    .ramka {
+        border: 1px solid navajowhite;
+        background: rgb(210, 255, 255);
+        padding: 20px;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    td, th {
+        border: 1px solid DodgerBlue;
+        padding: 5px;
+        background-color: rgb(235, 255, 255)
+    } padding: 5px;
+
+
+
+
+
+
+
+
+
+
+
+</style>

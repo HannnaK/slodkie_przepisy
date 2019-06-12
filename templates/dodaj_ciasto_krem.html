@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>dodanie</title>
+</head>
+{% extends "base.html" %}
+{% block zawartosc %}
+<body>
+{% if messages %}
+<div class="alert alert-danger">{{ messages[0] }}</div>
+{% endif %}
+<h2>{{opis_pola}}</h2>
+<form method="post" action="">
+    <table>
+        <tr>
+            <td>Podaj nazwę:</td>
+            <td><input type="text" name="nazwa" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>Wybierz rodzaj:</td>
+            <td>
+                <select name="rodzaj" class="form-control">
+
+                    <option aria-setsize="50">{{pole}}</option>
+                    <option aria-setsize="50">{{pole2}}</option>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Podaj opis przygotowania :</td>
+            <td><textarea name="przygotowanie" cols="50" rows="5" class="form-control"></textarea></td>
+
+        </tr>
+        {%if lista_kremow%}
+        <tr>
+            <td>Tu możesz dodać krem/polewę do przepisu:</td>
+            <td>
+                <select name="id_k" class="form-control">
+                    <option></option>
+                    {%for k in lista_kremow %}
+                    <option value="{{k[0]}}">{{k[1]}}</option>
+                    {%endfor%}
+                </select>
+            </td>
+        </tr>
+        {%endif%}
+        {%if opis_pola == 'Dodaj nowe ciasto lub ciasteczka: '%}
+        <tr>
+            <td>Podaj numer zdjęcia :</td>
+            <td><input type="number" name="nr_zdjecia" class="form-control"></td>
+        </tr>
+        {%endif%}
+        <tr>
+            <td></td>
+            <td><input type="submit" class="btn btn-success btn-sm">
+                <input type="reset" class="btn btn-danger btn-sm"></td>
+        </tr>
+
+    </table>
+</form>
+
+
+</body>
+</html>
+{% endblock %}

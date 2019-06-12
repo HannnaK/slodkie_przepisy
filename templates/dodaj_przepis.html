@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Dodanie_przepisu</title>
+{% extends "base.html" %}
+{% block zawartosc %}
+
+<h2>Chcąc dodać nowy przepis:</h2>
+<br/>
+<p>- przechodź kolejno między zakładkami używając linków powyżej</p>
+<p>- tworząc przepis który zawiera krem/polewę, najpierw trzeba dodać przepis na krem/polwę w odpowiedniej zakładce lub
+    wybrać krem/polewę używany w innym przepisie</p>
+<p>- składniki możesz dodać odrazu w przepisie, albo osobno</p>
+<p>- jeśli na liście do wyboru nie ma potrzebnego składnika dodaj go w zakładce Dodaj/Dodanie nowego składnika</p>
+<p>- jeśli dodawane ciasto nie posiada kremu lub polewy pomiń zakładkę "Dodanie kremu"</p>
+<p>- do przepisu można (ale nie jest to konieczne) dodać zdjęcie podając jego numer przy dodawaniu ciasta/ciasteczek,
+    wcześniej trzeba to zdjęcie umieścić w katalogu static</p>
+{% endblock %}
