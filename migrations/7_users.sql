@@ -7,6 +7,6 @@ CREATE TABLE "users"
 );
 
 INSERT INTO "users"
-VALUES (1, 'pat', 'pbkdf2:sha256:150000$INXfG3hk$682e0ac6eb6493893238553678a142e3c76b2dc37df4c5582f0ff01f408eb895'),
-       (2, 'mat', 'pbkdf2:sha256:150000$mbSC4jB7$7061b7a1d74a89fa332e48642d45f4d38c44040a3dad788680a2a22935eed192'),
-       (3, 'ola', 'pbkdf2:sha256:150000$NW8Ot6Mm$d3e25ef2252d004741729634c1642bc0fdfa7826d2b18e2701a2c4fde3688c41');
+VALUES (1, 'pat', 'pbkdf2:sha256:150000$Mu7RycuK$014db8624b9620065015ae1051ac8145c1a8c91d908af0097001ebc0ee9f2894'),
+       (2, 'mat', 'pbkdf2:sha256:150000$kpWdSuYB$50dbcb245e379c05f28d6318ca95ad5e37d8f146a5900f847bf47dc3131e40aa'),
+       (3, 'ola', 'pbkdf2:sha256:150000$mzQsfPNm$bc966f183e329abef20e0603b3d49fa40b955ed4ffc3b5a20470f086171b63f4');
